@@ -10,11 +10,11 @@ import Detail from './components/Detail/Detail.js';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/498rk-mp2">
         <Switch>
-          <Route exact path="498rk-mp2/" component={Search}/>
-          <Route exact path="498rk-mp2/gallery" component={Gallery}/>
-          <Route exact path="498rk-mp2/char/:id" component={Detail}/>
+          <Route exact path="/" component={Search}/>
+          <Route exact path="/498rk-mp2/gallery" component={Gallery}/>
+          <Route exact path="/498rk-mp2/char/:id" component={Detail}/>
 
           {/*
             Add routes for new pages here!
