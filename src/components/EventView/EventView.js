@@ -31,6 +31,7 @@ class EventView extends Component {
           
           // GET some data back!
           axios.get(url).then((response) => {
+            
             return response.data.data.results[0];
           }).then((character)=>{
               var joined = this.state.characters.concat(character);
