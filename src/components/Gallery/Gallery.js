@@ -69,12 +69,12 @@ class Gallery extends Component {
       console.log(this.state.characters);
   		return (
      	 <div>
-     	   <div className="navbar" id="navbar">
-     	     <h1 className='header'>Marvel</h1>
-     	   </div>
+     	    <div className="navbar" id="navbar">
+            <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
+          </div>
      	   <div className="menu">
-     	       <a id="search" href="/">Search</a>
-     	       <a id="gallery" href="/gallery">Gallery</a>
+     	        <Link to="/">Search</Link>
+              <Link to="/gallery">Gallery</Link>
      	   </div>
      	   <div className="filter">
      	   	<span className="selectevent">Select an event:</span>
@@ -100,11 +100,11 @@ class Gallery extends Component {
   		return (
   			<div>
      		   <div className="navbar" id="navbar">
-     		     <h1 className='header'>Marvel</h1>
-     		   </div>
+            <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
+          </div>
      		   <div className="menu">
-     		       <a id="search" href="/">Search</a>
-     		       <a id="gallery" href="/gallery">Gallery</a>
+     		       <Link to="/">Search</Link>
+              <Link to="/gallery">Gallery</Link>
      		   </div>
      	 	
      	 		<div className="filter">

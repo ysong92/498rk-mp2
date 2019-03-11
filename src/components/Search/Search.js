@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Button, List, Image, Input,  Container  } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import styles from './Search.css';
+import styles from './Search.scss';
 import ListView from '../List/List.js';
 import 'normalize.css';
 import axios from 'axios'
@@ -18,7 +18,7 @@ class App extends Component {
       value: '',
       characters: {},
       selectedOption:"name",
-      selectedOrder:"Ascending"
+      selectedOrder:"Ascending",
     };
 
     var public_key = '2f5e26fcc035d8014d57fece2897cba7';
@@ -67,6 +67,9 @@ class App extends Component {
 
     }).catch((error) => {
       console.log(error);
+      this.setState({
+        characters:{}
+      });
     });
   }
 
@@ -85,25 +88,22 @@ class App extends Component {
   }
 
 
-
-
-
-
   render() {
     return (
       <div>
         <div className="navbar" id="navbar">
-          <h1 className='header'>Marvel</h1>
+          <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
         </div>
         <div className="menu">
-            <a id="search" href="/">Search</a>
-            <a id="gallery" href="/gallery">Gallery</a>
+            <Link to="/">Search</Link>
+            <Link to="/gallery">Gallery</Link>
         </div>
         <div className="searchbar">
           <Input
             onChange={this.inputChangeHandler}
             placeholder='Search a character here'
             value={this.state.value}
+            className="searchbar_input"
           />
           <Button className='button' onClick={this.clickHandler}> Search </Button>
         </div>

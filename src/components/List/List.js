@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Card, Label, List, Image } from 'semantic-ui-react'
-import styles from './List.css'
+import styles from './List.scss'
+import { Link } from 'react-router-dom';
 
 
 class ListView extends Component {
@@ -27,13 +28,15 @@ class ListView extends Component {
           var char = `/char/${id}`;
           return(
               <li className="w3-bar" key={idx}>
-                  <a className="listrow" href={char}>
-                  <div className="bar-contnet">
-                    <Image src={url} avatar className="avatar"/>
-                    <span className='character_name'>{character_data.name}</span>
-                    <div className='modified'>Last modified: {date}</div>
+                  <Link to={char} className="listrow">
+                    <div className="bar-contnet">
+                    <div className="avatar">
+                      <Image src={url} avatar />
+                      <span className='character_name'>{character_data.name}</span>
+                    </div>
+                      <div className='modified'>Last modified: {date}</div>
                   </div>
-                  </a>
+                  </Link>
               </li>
             )
         });

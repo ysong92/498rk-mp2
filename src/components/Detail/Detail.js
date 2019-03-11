@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, List, Image, Input,  Container, Segment} from "semantic-ui-react";
+import {Button, List, Image, Input,  Container, Segment, Label} from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import 'normalize.css';
@@ -22,6 +22,7 @@ class Detail extends Component {
           change:this.props.match.params.id,
           description:'',
           error:false,
+          stories:[]
 	    };
 	
 	    this.public_key = '2f5e26fcc035d8014d57fece2897cba7';
@@ -44,7 +45,8 @@ class Detail extends Component {
     	   	this.setState({path:response.data.data.results[0].thumbnail.path});
     	   	this.setState({
                 ex:response.data.data.results[0].thumbnail.extension,
-                description: response.data.data.results[0].description
+                description: response.data.data.results[0].description,
+                stories:response.data.data.results[0].stories.items,
             });
     	   	var url = `${this.state.path}.${this.state.ex}`;
     	   	this.setState({url:url});
@@ -131,15 +133,24 @@ class Detail extends Component {
         var next_id = String(Number(this.state.id)+1);
         var cur_id = this.state.id;
         console.log("render  "+this.props.match.params.id);
+        const abilitiesView = this.state.stories.map((story, idx) => {
+        return (
+          // Using `idx` as a key is generally discouraged:
+          // https://reactjs.org/docs/lists-and-keys.html#keys
+          <Label key={idx} className="label">
+            {story.name}
+          </Label>
+        )
+      });
         if (this.state.error === true){
             return (
                 <div>
                     <div className="navbar" id="navbar">
-                        <h1 className='header'>Marvel</h1>
+                        <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
                     </div>
                     <div className="menu">
-                        <a id="search" href="/">Search</a>
-                        <a id="gallery" href="/gallery">Gallery</a>
+                        <Link to="/">Search</Link>
+                        <Link to="/gallery">Gallery</Link>
                     </div>
                     <Segment className="char-card">
                         <Link to={'/char/'+ prev_id} onClick={this.prevHandler}><span className="prev" id="prev">&#10094;</span></Link>
@@ -155,19 +166,22 @@ class Detail extends Component {
             return (
                 <div>
                     <div className="navbar" id="navbar">
-                        <h1 className='header'>Marvel</h1>
+                        <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
                     </div>
                     <div className="menu">
-                        <a id="search" href="/">Search</a>
-                        <a id="gallery" href="/gallery">Gallery</a>
+                         <Link to="/">Search</Link>
+                        <Link to="/gallery">Gallery</Link>
                     </div>
                     <Segment className="char-card">
                         <Image src={this.state.url} size='medium' centered />
                         <Link to={'/char/'+ prev_id} onClick={this.prevHandler}><span className="prev" id="prev">&#10094;</span></Link>
                         <Link to={'/char/'+ next_id} onClick={this.nextHandler}><span className="next" id="next">&#10095;</span></Link>
                         <h1>{this.state.characters.name}</h1>
-                        <h5>ID: {this.state.id}</h5>
-                        <h5>Description: {this.state.description}</h5>
+                        <Label  className="label">
+                            ID: {this.state.id}
+                        </Label>
+                        <p>Description: {this.state.description}</p>
+                        <div>Stories: {abilitiesView}</div>
                     </Segment>
                     
                 </div>
@@ -177,11 +191,11 @@ class Detail extends Component {
             return (
                 <div>
                     <div className="navbar" id="navbar">
-                        <h1 className='header'>Marvel</h1>
+                        <Image src="https://cdn.freebiesupply.com/logos/large/2x/marvel-logo-png-transparent.png"  className='center'/>
                     </div>
                     <div className="menu">
-                        <a id="search" href="/">Search</a>
-                        <a id="gallery" href="/gallery">Gallery</a>
+                        <Link to="/">Search</Link>
+                        <Link to="/gallery">Gallery</Link>
                     </div>
                     <Segment className="char-card">
                         <Link to={'/char/'+ prev_id} onClick={this.prevHandler}><span className="prev" id="prev">&#10094;</span></Link>

@@ -1,7 +1,9 @@
+$nocharacterpadding:50px;
+
 .noCharacter{
 	width: 100% !important;
 	margin: 0 auto;
-  	padding: 2em;
+  	padding: $nocharacterpadding;
   	text-align: center;
 }
 
@@ -10,7 +12,7 @@
 }
 
 .bar-contnet {
-	padding-top: 15px;
+	padding-top: 10px;
 }
 
 .listrow{
@@ -21,3 +23,5 @@
 	color:red;
 	background-color: white;
 }
+
+

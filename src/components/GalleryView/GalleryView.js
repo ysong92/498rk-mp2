@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, Image, Card} from 'semantic-ui-react'
 import styles from './GalleryView.scss'
+import { Link } from 'react-router-dom';
 
 
 class GalleryView extends Component {
@@ -27,13 +28,13 @@ class GalleryView extends Component {
           return(
 
               <Grid.Column key={idx}>
-               <a href={char}>
+               <Link to={char}>
                 <div>
                   <Card className="noCharacter">
                     <Image src={url} />
                   </Card>
                 </div>
-                </a>
+                </Link>
                   
               </Grid.Column>
             )

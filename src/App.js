@@ -13,8 +13,8 @@ class App extends Component {
       <Router basename="/498rk-mp2">
         <Switch>
           <Route exact path="/" component={Search}/>
-          <Route exact path="/498rk-mp2/gallery" component={Gallery}/>
-          <Route exact path="/498rk-mp2/char/:id" component={Detail}/>
+          <Route exact path="/gallery" component={Gallery}/>
+          <Route exact path="/char/:id" component={Detail}/>
 
           {/*
             Add routes for new pages here!
