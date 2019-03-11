@@ -1,0 +1,23 @@
+.noCharacter{
+	width: 100% !important;
+	margin: 0 auto;
+  	padding: 2em;
+  	text-align: center;
+}
+
+.modified {
+	text-align: right;
+}
+
+.bar-contnet {
+	padding-top: 15px;
+}
+
+.listrow{
+	color: black;
+}
+
+.listrow:hover {
+	color:red;
+	background-color: white;
+}

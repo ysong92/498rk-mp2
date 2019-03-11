@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import 'semantic-ui-css/semantic.min.css';
+
+// Include your new Components here
+import Search from './components/Search/Search.js';
+import Gallery from  './components/Gallery/Gallery.js';
+import Detail from './components/Detail/Detail.js';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Search}/>
+          <Route exact path="/gallery" component={Gallery}/>
+          <Route exact path="/char/:id" component={Detail}/>
+
+          {/*
+            Add routes for new pages here!
+            Here's an example. To view this route, just go to http://localhost:3000/example
+          */}
+        </Switch>
+      </Router>
     );
   }
 }
